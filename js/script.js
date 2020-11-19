@@ -8,27 +8,31 @@ La partita termina quando il giocatore inserisce un numero “vietato” o raggi
 Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.*/
 
 // Il computer deve generare 16 numeri casuali tra 1 e 100.
-var botRandomNumber= fxBotRadom(1,100);
-fxControlDuplicate();
+var minBot=1;
+var maxBot=100;
+var botRandomNumber= fxBotRadom(minBot,maxBot);
+console.log(botRandomNumber);
+fxControlDuplicate(botRandomNumber,minBot, maxBot);
+console.log(botRandomNumber);
 
 function fxBotRadom(min,max) {
-  var array=[5,4,3,3,2];
+  var array=[];
   for (var i = 0; i < 16; i++) {
     array[i]=Math.floor(Math.random()*(max-min)+min);
   }
-  console.log(array);
-  array.sort();
-  for (var j = 0; j < array.length; j++) {
-    while (array[j]== array[j-1]) {
-      array[j]=Math.floor(Math.random()*(max-min)+min);
-    }
-  }
-    console.log(array);
-
+  return array;
 }
 
+
 //funzioni di controllo
-function fxControlDuplicate(arg1) {
-
-
+function fxControlDuplicate(arg1,min,max) {
+  //controllo dupplicati
+  arg1.sort();
+  for (var j = 0; j < arg1.length; j++) {
+    while (arg1[j]== arg1[j-1]) {
+      arg1[j]=Math.floor(Math.random()*(max-min)+min);
+      arg1.sort();
+    }
+  }
+  return arg1;
 }

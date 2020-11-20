@@ -13,11 +13,12 @@ switch (level) {
     break;
   case 2:
     max=50;
+    break;
   default:
     max=100;
 
 }
-max-=16;
+var MaxAttemps=max-16;
 
 var bootNumbers=[];
 //Il computer deve generare 16 numeri casuali tra 1 e 100.
@@ -39,11 +40,12 @@ console.log(bootNumbers);
 
 
 var userNumbers= [];
+
 //In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.
 var score=0;
-while(userNumbers.length < 16 ){
-  var message="inserisci numero da"+ "1 a " + (max+=16);
-  if (check) message="numero già presente rinserisci un numero da numero da"+ "1 a " + (max+=16);
+while(userNumbers.length < MaxAttemps){
+  var message="inserisci numero da"+ "1 a " + (max);
+  if (check) message="numero già presente rinserisci un numero da numero da"+ "1 a ";
   var numberUser= parseInt(prompt(message));
 //L’utente non può inserire più volte lo stesso numero.
   var check=false;

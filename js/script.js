@@ -42,11 +42,14 @@ var userNumbers= [];
 //In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.
 var score=0;
 while(userNumbers.length < 16 ){
-  var numberUser= parseInt(prompt("inserisci numero"))
+  var message="inserisci numero da"+ "1 a " + (max+=16);
+  if (check) message="numero già presente rinserisci un numero da numero da"+ "1 a " + (max+=16);
+  var numberUser= parseInt(prompt(message));
 //L’utente non può inserire più volte lo stesso numero.
+  var check=false;
   if (alreadyexist(numberUser,userNumbers)){
 
-    alreadyexist(numberUser,userNumbers);
+  check=true;
 
   }else if (alreadyexist(numberUser,bootNumbers)){
     //La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.

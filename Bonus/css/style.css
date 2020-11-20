@@ -1,0 +1,41 @@
+*  {
+  box-sizing: border-box;
+  margin:0;
+  border:0;
+}
+/*** DEBUG:***/
+.debug .row{
+  background-color: red;
+  height: 20px;
+  width: calc(20px*10);
+  margin: auto;
+
+}
+.debug .box{
+  background-color: aqua;
+  width: 20px;
+  height: 20px;
+  border:1px solid;
+}
+/***********************/
+.box{
+  position: relative;
+}
+.container{
+  width: 70%;
+  margin:auto;
+}
+.row{
+  display: flex;
+  flex-direction: row;
+}
+.overlay {
+  background-color: red;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  opacity: 1;
+}
+.opacity{
+  opacity: 0;
+}

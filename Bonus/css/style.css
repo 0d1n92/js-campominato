@@ -60,9 +60,10 @@ img#bombicon{
 #container_overflow{
   font-family: 'Black Ops One', cursive;
   position: absolute;
+  top:0;
+  padding: 100px;
   width: 100%;
   height: 100%;
-  padding: 100px;
   background: rgb(61,66,83);
   background: linear-gradient(0deg, rgba(61,66,83,1) 8%, rgba(15,28,69,0.9500175070028011) 28%, rgba(0,70,196,0.9248074229691877) 100%);
   text-align: center;
@@ -75,6 +76,13 @@ img#bombicon{
    top:20%;
  }
 
+#timer {
+  font-size: 30px;
+  font-family:'Orbitron', sans-serif;
+  color: red;
+  margin-bottom: 20px;
+  text-align: center;
+}
 
 .row{
   display: flex;

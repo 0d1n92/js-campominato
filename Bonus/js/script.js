@@ -39,6 +39,7 @@ var MaxAttemps=max-16;
 console.log(max);
 var container=document.getElementById('container');
 var rows=document.getElementsByClassName('row');
+container.innerHTML="<div id='timer'></div>"
 var iterazioni=0;
 for (var i = 0; i < rowlevel; i++ ) {
   container.innerHTML+="<div class='row'></div>";
@@ -74,10 +75,12 @@ for(var x=0; x< box.length ; x++){
   if (alreadyexist(boxNumbers,bootNumbers)){
   box[x].innerHTML+="<img src='img/iconbomb.png' class='bomb'></img>";
 }
+
 }
 console.log(bootNumbers);
 //visualizza bombe
 var overlay= document.getElementsByClassName("overlay");
+var changeCounter=0;
 for(var i = 0; i < overlay.length; i++) {
   (function(index) {
     overlay[index].addEventListener("click", function() {
@@ -86,12 +89,16 @@ for(var i = 0; i < overlay.length; i++) {
         var clicked=index+1;
         console.log(clicked);
         if (alreadyexist(clicked,bootNumbers)){
-          alert("hai perso!");
+          alert("hai perso! con "+changeCounter+" tentativi coretti");
+      }else {
+        changeCounter++;
       }
     })
+
   })(i);
 }
 }
+
 //CONTROLLI
 function alreadyexist(n, array) {
   var find=false;
@@ -121,9 +128,9 @@ function alreadyexist(n, array) {
 // }
 function timer() {
  var displayTime=document.getElementById('timer');
-  var duration = 60 * 2;
+  var duration = 60* 2;
     var timer = duration, minutes, seconds;
-    setInterval(function () {
+    var interval= setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
         minutes = minutes < 10 ? "0" + minutes : minutes;
@@ -132,6 +139,11 @@ function timer() {
 
         if (--timer < 0) {
             timer = duration;
+        } else if (timer==0){
+          clearInterval(interval);
+          alert("hai perso!");
+
         }
+
     }, 1000);
 }

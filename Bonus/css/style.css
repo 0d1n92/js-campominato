@@ -5,17 +5,11 @@
 }
 /*** DEBUG:***/
 .debug .row{
-  background-color: red;
+
   height: 70px;
   width: calc(70px*10);
   margin: auto;
 
-}
-.debug .box{
-  background-color: aqua;
-  width: 70px;
-  height: 70px;
-  border:1px solid;
 }
 
 /***********************/
@@ -60,6 +54,8 @@ img#bombicon{
   height: 100%;
   width: 100%;
   position: relative;
+  background: rgb(61,66,83);
+  background: linear-gradient(0deg, rgba(61,66,83,1) 8%, rgba(15,28,69,0.9500175070028011) 28%, rgba(0,70,196,0.9248074229691877) 100%);
 }
 #container_overflow{
   font-family: 'Black Ops One', cursive;
@@ -85,9 +81,14 @@ img#bombicon{
   flex-direction: row;
 }
 .box{
+  width: 70px;
+  height: 70px;
   position: relative;
   text-align:center;
   line-height: 68px;
+
+
+  border:1px solid;
 }
 img.bomb{
   height: 50px;
@@ -98,7 +99,7 @@ img.bomb{
 
 
 .overlay {
-  background-color: red;
+  background: rgb(61,66,83);
   height: 100%;
   width: 100%;
   position: absolute;

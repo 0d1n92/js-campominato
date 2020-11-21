@@ -25,6 +25,7 @@ for(var i = 0; i < level.length; i++){
             break;
         }
         main(max,rowlevel);
+        timer();
 
     })
   })(i);
@@ -32,6 +33,7 @@ for(var i = 0; i < level.length; i++){
 }
 
 function main(max, rowlevel){
+
 var MaxAttemps=max-16;
 //stampa righe
 console.log(max);
@@ -99,4 +101,37 @@ function alreadyexist(n, array) {
     }
   }
   return find;
+}
+//timer
+// function timer(){
+// var seconds = 60;
+// var minutes=1;
+// var timer=document.getElementById('timer');
+// (function countdown() {
+//     timer.innerHTML = minutes +":"+ seconds + ' second' +  (seconds == 1 ?  '' :  's');
+//     if(seconds --> 1 ){ setTimeout(countdown, 1000);
+//
+//     }else if (minutes --> 0){
+//      setTimeout(countdown,6000);
+//    }
+//
+//
+//
+// })();
+// }
+function timer() {
+ var displayTime=document.getElementById('timer');
+  var duration = 60 * 2;
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        displayTime.innerHTML = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
 }

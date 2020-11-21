@@ -1,30 +1,51 @@
-var level=parseInt(prompt("Insierisci livello"));
-switch (level) {
-  case 1:
-    max=80;
-    break;
-  case 2:
-    max=50;
-    break;
-  default:
-    max=100;
+var level=document.getElementsByName("level");
+var overflow=document.getElementById('container_overflow');
+var max;
+var rowlevel;
+for(var i = 0; i < level.length; i++){
+  (function(index) {
+    level[index].addEventListener("click", function() {
+       console.log("Clicked level index: " + index);
+        overflow.classList.add("opacity");
+
+        switch (index) {
+          case index=1:
+            max=80;
+            rowlevel=8;
+            break;
+          case index=2:
+            max=50;
+            rowlevel=5;
+            break;
+          case index=0:
+            max=100;
+            rowlevel=10;
+            break;
+        }
+        main(max,rowlevel);
+
+    })
+  })(i);
 
 }
+
+function main(max, rowlevel){
 var MaxAttemps=max-16;
 //stampa righe
+console.log(max);
 var container=document.getElementById('container');
 var rows=document.getElementsByClassName('row');
 var iterazioni=0;
-for (var i = 0; i < 10; i++ ) {
+for (var i = 0; i < rowlevel; i++ ) {
   container.innerHTML+="<div class='row'></div>";
 }
 var divNumber="";
 //creami 10 box
-for(var i=0 ;i<10; i++) {
+for(var i=0; i< 10; i++) {
   divNumber+="<div class='box'>"+"<div class='overlay'> </div>"+"</div>";
 }
 
-for (var j = 0; j < 10; j++ ) {
+for (var j = 0; j < rows.length; j++ ) {
 rows[j].innerHTML += divNumber;
 }
 var box=document.getElementsByClassName('box');
@@ -36,7 +57,7 @@ while(bootNumbers.length < 16 ){
 //I numeri non possono essere duplicati.
   if (alreadyexist(bomb,bootNumbers)){
 
-    alreadyexist(bomb,bootNumbers);
+    continue;
 
   } else {
 
@@ -59,13 +80,14 @@ for(var i = 0; i < overlay.length; i++) {
        console.log("Clicked index: " + index);
         overlay[index].classList.add("opacity");
         var clicked=index+1;
+        console.log(clicked);
         if (alreadyexist(clicked,bootNumbers)){
           alert("hai perso!");
       }
     })
   })(i);
 }
-
+}
 //CONTROLLI
 function alreadyexist(n, array) {
   var find=false;

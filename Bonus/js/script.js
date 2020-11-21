@@ -1,5 +1,6 @@
 var level=document.getElementsByName("level");
 var overflow=document.getElementById('container_overflow');
+ var container=document.getElementById('container');
 var max;
 var rowlevel;
 for(var i = 0; i < level.length; i++){
@@ -7,6 +8,7 @@ for(var i = 0; i < level.length; i++){
     level[index].addEventListener("click", function() {
        console.log("Clicked level index: " + index);
         overflow.classList.add("opacity");
+        container.style.padding="100px";
 
         switch (index) {
           case index=1:
@@ -68,7 +70,7 @@ while(bootNumbers.length < 16 ){
 for(var x=0; x< box.length ; x++){
   var boxNumbers=x+1;
   if (alreadyexist(boxNumbers,bootNumbers)){
-  box[x].innerHTML+="A";
+  box[x].innerHTML+="<img src='img/iconbomb.png' class='bomb'></img>";
 }
 }
 console.log(bootNumbers);

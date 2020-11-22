@@ -103,8 +103,10 @@ img.bomb{
   vertical-align: middle;
 
 }
-
-
+.value{
+  color: forestgreen;
+  font-weight: bold;
+}
 
 .overlay {
   background: rgb(61,66,83);

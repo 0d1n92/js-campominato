@@ -47,7 +47,7 @@ for (var i = 0; i < rowlevel; i++ ) {
 var divNumber="";
 //creami 10 box
 for(var i=0; i< 10; i++) {
-  divNumber+="<div class='box'>"+"<div class='overlay'> </div>"+"</div>";
+  divNumber+="<div class='box'>"+"<div class='overlay'></div>"+"<div class='value'></div>"+"</div>";
 }
 
 for (var j = 0; j < rows.length; j++ ) {
@@ -70,14 +70,31 @@ while(bootNumbers.length < 16 ){
   }
 }
 //stampa bombe e numero caselle
-for(var x=0; x< box.length ; x++){
-  var boxNumbers=x+1;
-  if (alreadyexist(boxNumbers,bootNumbers)){
-  box[x].innerHTML+="<img src='img/iconbomb.png' class='bomb'></img>";
+var value=document.getElementsByClassName("value");
+for (var i = 0; i < value.length; i++) {
+    value[i]=parseInt(value[i].innerHTML=0);
 }
 
+for(var x=0; x< value.length ; x++){
+  var boxNumbers=x+1;
+  var bombImg="<img src='img/iconbomb.png' class='bomb'></img>"
+  if (alreadyexist(boxNumbers,bootNumbers)){
+  if (value[x+1]!=undefined && value[x-1]!=undefined && value[x+9]!=undefined && value[x-9]!=undefined && value[x+10]!=undefined && value[x-10]!=undefined && value[x+11]!=undefined && value[x-11]!=undefined ){
+      value[x+1].innerHTML=parseInt(value[x+1].innerHTML, 10)+1 || bombImg;
+      value[x-1].innerHTML=parseInt(value[x-1].innerHTML, 10)+1 || bombImg;
+      value[x+9].innerHTML=parseInt(value[x+9].innerHTML, 10)+1|| bombImg;
+      value[x-9].innerHTML=parseInt(value[x-9].innerHTML, 10)+1 || bombImg;
+      value[x+10].innerHTML=parseInt(value[x+10].innerHTML, 10)+1 || bombImg;
+      value[x-10].innerHTML=parseInt(value[x-10].innerHTML, 10)+1 || bombImg;
+      value[x+11].innerHTML=parseInt(value[x+11].innerHTML, 10)+1 || bombImg;
+      value[x-11].innerHTML=parseInt(value[x-11].innerHTML, 10)+1 || bombImg;
+  }
+  value[x].innerHTML= bombImg;
+  ;}
+
+
 }
-console.log(bootNumbers);
+
 //visualizza bombe
 var overlay= document.getElementsByClassName("overlay");
 var changeCounter=0;
@@ -99,16 +116,7 @@ for(var i = 0; i < overlay.length; i++) {
 }
 }
 
-//CONTROLLI
-function alreadyexist(n, array) {
-  var find=false;
-  for (var i = 0; i < array.length; i++) {
-    if(array[i]==n){
-      return find=true;
-    }
-  }
-  return find;
-}
+
 //timer
 // function timer(){
 // var seconds = 60;
@@ -146,4 +154,14 @@ function timer() {
         }
 
     }, 1000);
+}
+//CONTROLLI
+function alreadyexist(n, array) {
+  var find=false;
+  for (var i = 0; i < array.length; i++) {
+    if(array[i]==n){
+      return find=true;
+    }
+  }
+  return find;
 }

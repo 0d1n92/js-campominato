@@ -8,6 +8,7 @@ for(var i = 0; i < level.length; i++){
     level[index].addEventListener("click", function() {
         overflow.classList.add("opacity");
         container.style.padding="100px";
+        container.style.height="auto";
 
         switch (index) {
           case index=1:
@@ -17,6 +18,7 @@ for(var i = 0; i < level.length; i++){
           case index=2:
             max=50;
             rowlevel=5;
+            container.style.height="100vh";
             break;
           case index=0:
             max=100;
@@ -83,7 +85,7 @@ for(var x=0; x< value.length ; x++){
       value[x+1].innerHTML=parseInt(value[x+1].innerHTML, 10)+1 || bombImg;
 
     }
-    if( x!=0 && value[x+9]!=undefined){
+    if( x%10!= 0 && x!=0 && value[x+9]!=undefined){
       value[x+9].innerHTML=parseInt(value[x+9].innerHTML, 10)+1|| bombImg;
     }
     if( value[x+10]!=undefined){
@@ -93,10 +95,10 @@ for(var x=0; x< value.length ; x++){
       value[x+11].innerHTML=parseInt(value[x+11].innerHTML, 10)+1 || bombImg;
     }
 
-    if (value[x-1]!=undefined) {
+    if ( (x)%10!= 0 && value[x-1]!=undefined) {
         value[x-1].innerHTML=parseInt(value[x-1].innerHTML, 10)+1 || bombImg ;
     }
-    if((x+1)%10!=0 && value[x-9]!=undefined){
+    if( (x+1)%10!=0 && value[x-9]!=undefined){
       value[x-9].innerHTML=parseInt(value[x-9].innerHTML, 10)+1|| bombImg;
     }
     if(value[x-10]!=undefined){
@@ -115,6 +117,7 @@ for(var x=0; x< value.length ; x++){
 //visualizza bombe
 var overlay= document.getElementsByClassName("overlay");
 var changeCounter=0;
+document.getElementById('score').innerHTML="Punteggio: ";
 for(var i = 0; i < overlay.length; i++) {
   (function(index) {
     overlay[index].addEventListener("click", function() {
@@ -127,7 +130,7 @@ for(var i = 0; i < overlay.length; i++) {
       }else {
         changeCounter++;
       }
-      document.getElementById('score').innerHTML="Punteggio: "+changeCounter;
+      document.getElementById('score').innerHTML="Punteggio: "+ changeCounter;
     })
 
   })(i);
@@ -154,7 +157,7 @@ for(var i = 0; i < overlay.length; i++) {
 // }
 function timer() {
  var displayTime=document.getElementById('timer');
-  var duration = 60* 2;
+  var duration = 60* 10;
     var timer = duration, minutes, seconds;
     var interval= setInterval(function () {
         minutes = parseInt(timer / 60, 10);

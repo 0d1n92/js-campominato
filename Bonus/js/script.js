@@ -104,7 +104,7 @@ for(var x=0; x< value.length ; x++){
     if(value[x-10]!=undefined){
       value[x-10].innerHTML=parseInt(value[x-10].innerHTML, 10)+1|| bombImg;
     }
-    if(value[x-11]!=undefined){
+    if((x)%10!= 0 && value[x-11]!=undefined){
       value[x-11].innerHTML=parseInt(value[x-11].innerHTML, 10)+1|| bombImg;
     }
 

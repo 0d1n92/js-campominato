@@ -3,16 +3,7 @@
   margin:0;
   border:0;
 }
-/*** DEBUG:***/
-.debug .row{
 
-  height: 70px;
-  width: calc(70px*10);
-  margin: auto;
-
-}
-
-/***********************/
 h1 {
   font-size: 60px;
   letter-spacing: 8px
@@ -88,6 +79,7 @@ img#bombicon{
 .row{
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 .box{
   width: 70px;

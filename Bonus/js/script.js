@@ -39,7 +39,7 @@ var MaxAttemps=max-16;
 console.log(max);
 var container=document.getElementById('container');
 var rows=document.getElementsByClassName('row');
-container.innerHTML="<div id='timer'></div>"
+container.innerHTML="<div id='timer'></div>+   <h2 id='score'></h2>"
 var iterazioni=0;
 for (var i = 0; i < rowlevel; i++ ) {
   container.innerHTML+="<div class='row'></div>";
@@ -110,6 +110,7 @@ for(var i = 0; i < overlay.length; i++) {
       }else {
         changeCounter++;
       }
+      document.getElementById('score').innerHTML="Punteggio: "+changeCounter;
     })
 
   })(i);

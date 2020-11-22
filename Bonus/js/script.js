@@ -8,6 +8,7 @@ for(var i = 0; i < level.length; i++){
     level[index].addEventListener("click", function() {
        console.log("Clicked level index: " + index);
         overflow.classList.add("opacity");
+        container.style.height="auto";
         container.style.padding="100px";
 
         switch (index) {
@@ -87,7 +88,7 @@ for(var x=0; x< value.length ; x++){
     if( x!=0 && value[x+9]!=undefined){
       value[x+9].innerHTML=parseInt(value[x+9].innerHTML, 10)+1|| bombImg;
     }
-    if(  value[x+10]!=undefined){
+    if( value[x+10]!=undefined){
       value[x+10].innerHTML=parseInt(value[x+10].innerHTML, 10)+1|| bombImg;
     }
     if ((x+1)%10!=0 && value[x+11]!=undefined) {
@@ -107,11 +108,6 @@ for(var x=0; x< value.length ; x++){
       value[x-11].innerHTML=parseInt(value[x-11].innerHTML, 10)+1|| bombImg;
     }
 
-  //     value[x-10].innerHTML=parseInt(value[x-10].innerHTML, 10)+1 || bombImg ;
-  //     value[x+9].innerHTML=parseInt(value[x+9].innerHTML, 10)+1 || bombImg;
-  //     // value[x+11].innerHTML=parseInt(value[x+11].innerHTML, 10)+1 || bombImg;
-  //     // value[x-11].innerHTML=parseInt(value[x-11].innerHTML, 10)+1 || bombImg;
-  // }
   value[x].innerHTML= bombImg;
   ;}
 
@@ -173,7 +169,7 @@ function timer() {
             timer = duration;
         } else if (timer==0){
           clearInterval(interval);
-          alert("hai perso!");
+          alert("hai perso!tempo scaduto");
 
         }
 

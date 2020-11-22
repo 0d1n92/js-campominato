@@ -7,7 +7,7 @@ for(var i = 0; i < level.length; i++){
   (function(index) {
     level[index].addEventListener("click", function() {
         overflow.classList.add("opacity");
-        container.style.padding="100px";
+        container.style.padding="50px";
         container.style.height="auto";
 
         switch (index) {

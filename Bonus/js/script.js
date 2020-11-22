@@ -79,17 +79,39 @@ for(var x=0; x< value.length ; x++){
   var boxNumbers=x+1;
   var bombImg="<img src='img/iconbomb.png' class='bomb'></img>"
   if (alreadyexist(boxNumbers,bootNumbers)){
-    //errore se (x bombs=10) (x+1=11 array[11]=1] ma non esiste bomba
-  if (value[x+1]!=undefined && value[x-1]!=undefined && value[x+9]!=undefined && value[x-9]!=undefined && value[x+10]!=undefined && value[x-10]!=undefined && value[x+11]!=undefined && value[x-11]!=undefined ){
+
+    if ( (x+1)%10!= 0 && value[x+1]!=undefined ){
       value[x+1].innerHTML=parseInt(value[x+1].innerHTML, 10)+1 || bombImg;
-      value[x-1].innerHTML=parseInt(value[x-1].innerHTML, 10)+1 || bombImg;
-      value[x+9].innerHTML=parseInt(value[x+9].innerHTML, 10)+1|| bombImg ;
-      value[x-9].innerHTML=parseInt(value[x-9].innerHTML, 10)+1 || bombImg;
-      value[x+10].innerHTML=parseInt(value[x+10].innerHTML, 10)+1 || bombImg;
-      value[x-10].innerHTML=parseInt(value[x-10].innerHTML, 10)+1 || bombImg;
+      console.log("indice equivale a : " + x)
+    }
+    if( x!=0 && value[x+9]!=undefined){
+      value[x+9].innerHTML=parseInt(value[x+9].innerHTML, 10)+1|| bombImg;
+    }
+    if(  value[x+10]!=undefined){
+      value[x+10].innerHTML=parseInt(value[x+10].innerHTML, 10)+1|| bombImg;
+    }
+    if ((x+1)%10!=0 && value[x+11]!=undefined) {
       value[x+11].innerHTML=parseInt(value[x+11].innerHTML, 10)+1 || bombImg;
-      value[x-11].innerHTML=parseInt(value[x-11].innerHTML, 10)+1 || bombImg ;
-  }
+    }
+
+    if (value[x-1]!=undefined) {
+        value[x-1].innerHTML=parseInt(value[x-1].innerHTML, 10)+1 || bombImg ;
+    }
+    if((x+1)%10!=0 && value[x-9]!=undefined){
+      value[x-9].innerHTML=parseInt(value[x-9].innerHTML, 10)+1|| bombImg;
+    }
+    if(value[x-10]!=undefined){
+      value[x-10].innerHTML=parseInt(value[x-10].innerHTML, 10)+1|| bombImg;
+    }
+    if(value[x-11]!=undefined){
+      value[x-11].innerHTML=parseInt(value[x-11].innerHTML, 10)+1|| bombImg;
+    }
+
+  //     value[x-10].innerHTML=parseInt(value[x-10].innerHTML, 10)+1 || bombImg ;
+  //     value[x+9].innerHTML=parseInt(value[x+9].innerHTML, 10)+1 || bombImg;
+  //     // value[x+11].innerHTML=parseInt(value[x+11].innerHTML, 10)+1 || bombImg;
+  //     // value[x-11].innerHTML=parseInt(value[x-11].innerHTML, 10)+1 || bombImg;
+  // }
   value[x].innerHTML= bombImg;
   ;}
 

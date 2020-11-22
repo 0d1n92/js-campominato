@@ -6,9 +6,7 @@ var rowlevel;
 for(var i = 0; i < level.length; i++){
   (function(index) {
     level[index].addEventListener("click", function() {
-       console.log("Clicked level index: " + index);
         overflow.classList.add("opacity");
-        container.style.height="auto";
         container.style.padding="100px";
 
         switch (index) {
@@ -37,10 +35,10 @@ function main(max, rowlevel){
 
 var MaxAttemps=max-16;
 //stampa righe
-console.log(max);
+
 var container=document.getElementById('container');
 var rows=document.getElementsByClassName('row');
-container.innerHTML="<div id='timer'></div>+   <h2 id='score'></h2>"
+container.innerHTML="<div id='timer'></div>   <h2 id='score'></h2>"
 var iterazioni=0;
 for (var i = 0; i < rowlevel; i++ ) {
   container.innerHTML+="<div class='row'></div>";
@@ -83,7 +81,7 @@ for(var x=0; x< value.length ; x++){
 
     if ( (x+1)%10!= 0 && value[x+1]!=undefined ){
       value[x+1].innerHTML=parseInt(value[x+1].innerHTML, 10)+1 || bombImg;
-      console.log("indice equivale a : " + x)
+
     }
     if( x!=0 && value[x+9]!=undefined){
       value[x+9].innerHTML=parseInt(value[x+9].innerHTML, 10)+1|| bombImg;
@@ -120,10 +118,10 @@ var changeCounter=0;
 for(var i = 0; i < overlay.length; i++) {
   (function(index) {
     overlay[index].addEventListener("click", function() {
-       console.log("Clicked index: " + index);
+
         overlay[index].classList.add("opacity");
         var clicked=index+1;
-        console.log(clicked);
+
         if (alreadyexist(clicked,bootNumbers)){
           alert("hai perso! con "+changeCounter+" tentativi coretti");
       }else {

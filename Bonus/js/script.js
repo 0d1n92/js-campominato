@@ -153,7 +153,7 @@ function layout(){
 
 function timer() {
  var displayTime=document.getElementById('timer');
-  var duration = 5* 1;
+  var duration = 60* 4;
     var timer = duration, minutes, seconds;
     var interval= setInterval(function () {
         minutes = parseInt(timer / 60, 10);

@@ -1,59 +1,16 @@
 var level=document.getElementsByName("level");
 var overflow=document.getElementById('container_overflow');
- var container=document.getElementById('container');
+selectLevel (overflow,container);
 var max;
 var rowlevel;
-for(var i = 0; i < level.length; i++){
-  (function(index) {
-    level[index].addEventListener("click", function() {
-        overflow.classList.add("opacity");
-        container.style.padding="50px";
-        container.style.height="auto";
 
-        switch (index) {
-          case index=1:
-            max=80;
-            rowlevel=8;
-            break;
-          case index=2:
-            max=50;
-            rowlevel=5;
-            container.style.height="100vh";
-            break;
-          case index=0:
-            max=100;
-            rowlevel=10;
-            break;
-        }
-        main(max,rowlevel);
-        timer();
-
-    })
-  })(i);
-
-}
 
 function main(max, rowlevel){
 
 var MaxAttemps=max-16;
-//stampa righe
 
-var container=document.getElementById('container');
-var rows=document.getElementsByClassName('row');
-container.innerHTML="<div id='timer'></div>   <h2 id='score'></h2>"
-var iterazioni=0;
-for (var i = 0; i < rowlevel; i++ ) {
-  container.innerHTML+="<div class='row'></div>";
-}
-var divNumber="";
-//creami 10 box
-for(var i=0; i< 10; i++) {
-  divNumber+="<div class='box'>"+"<div class='overlay'></div>"+"<div class='value'></div>"+"</div>";
-}
+layout();
 
-for (var j = 0; j < rows.length; j++ ) {
-rows[j].innerHTML += divNumber;
-}
 var box=document.getElementsByClassName('box');
 //BOMBE
 var bootNumbers=[];
@@ -137,27 +94,66 @@ for(var i = 0; i < overlay.length; i++) {
 }
 }
 
+//sleziona livello
+function selectLevel(overflow, container){
+  for(var i = 0; i < level.length; i++){
+    (function(index) {
+      level[index].addEventListener("click", function() {
+          overflow.classList.add("opacity");
+          container.style.padding="50px";
+          container.style.height="auto";
 
-//timer
-// function timer(){
-// var seconds = 60;
-// var minutes=1;
-// var timer=document.getElementById('timer');
-// (function countdown() {
-//     timer.innerHTML = minutes +":"+ seconds + ' second' +  (seconds == 1 ?  '' :  's');
-//     if(seconds --> 1 ){ setTimeout(countdown, 1000);
-//
-//     }else if (minutes --> 0){
-//      setTimeout(countdown,6000);
-//    }
-//
-//
-//
-// })();
-// }
+          switch (index) {
+            case index=1:
+              max=80;
+              rowlevel=8;
+              break;
+            case index=2:
+              max=50;
+              rowlevel=5;
+              container.style.height="100vh";
+              break;
+            case index=0:
+              max=100;
+              rowlevel=10;
+              break;
+          }
+
+          main(max,rowlevel);
+
+          timer();
+
+      })
+    })(i);
+
+  }
+
+  return max,rowlevel;
+}
+//creami il layout
+function layout(){
+  var container=document.getElementById('container');
+  var rows=document.getElementsByClassName('row');
+  container.innerHTML="<div id='timer'></div>   <h2 id='score'></h2>"
+  var iterazioni=0;
+  //stampa righe
+  for (var i = 0; i < rowlevel; i++ ) {
+    container.innerHTML+="<div class='row'></div>";
+  }
+  var divNumber="";
+  //creami 10 box
+  for(var i=0; i< 10; i++) {
+    divNumber+="<div class='box'>"+"<div class='overlay'></div>"+"<div class='value'></div>"+"</div>";
+  }
+
+  for (var j = 0; j < rows.length; j++ ) {
+  rows[j].innerHTML += divNumber;
+  }
+}
+
 function timer() {
  var displayTime=document.getElementById('timer');
-  var duration = 60* 10;
+  var duration = 5* 1;
     var timer = duration, minutes, seconds;
     var interval= setInterval(function () {
         minutes = parseInt(timer / 60, 10);
@@ -166,13 +162,12 @@ function timer() {
         seconds = seconds < 10 ? "0" + seconds : seconds;
         displayTime.innerHTML = minutes + ":" + seconds;
 
-        if (--timer < 0) {
-            timer = duration;
-        } else if (timer==0){
+        if (timer==0){
           clearInterval(interval);
           alert("hai perso!tempo scaduto");
-
-        }
+        }else if (--timer < 0) {
+            timer = duration;
+        } else i
 
     }, 1000);
 }

@@ -22,8 +22,14 @@
   with difficulty 2 => between 1 and 50 *
 </p>
  
- <p>In Bonus folder there is a replication of interactive game </p>
- 
+<p>In Bonus folder there is a replication of interactive game </p>
+<h4>Tecnology used:</h4>
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JS-5</li>
+  
+<ul>  
  Screenshot result:
 
  <img src="https://drive.google.com/uc?export=view&id=1CKBEmtXelwoX8bEYffFIlmh3ZZ_a-_q9" alt="ScreenShot">

@@ -30,7 +30,7 @@
   <li>JS-5</li>
   
 <ul>  
- Screenshot result:
+<p>Screenshot result:</p><br>
 
- <img src="https://drive.google.com/uc?export=view&id=1CKBEmtXelwoX8bEYffFIlmh3ZZ_a-_q9" alt="ScreenShot">
-  <img src="https://drive.google.com/uc?export=view&id=1UD64uwrFop-l3_xwyCmlkbwAtgpbPKEb" alt="ScreenShot">
+<img width="400px" src="https://i.ibb.co/GR6LsBT/2020-12-20-17-10.png" alt="2020-12-20-17-10" border="0"><br>
+<img style="margin-top:10px" width="400px" src="https://i.ibb.co/Y8dmG0H/2020-12-20-17-11.png" alt="2020-12-20-17-11" border="0">
